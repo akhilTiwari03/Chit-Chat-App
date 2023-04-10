@@ -16,9 +16,9 @@ import {
   DrawerBody,
   Input,
   Spinner,
-  effect,
   useToast,
   useDisclosure,
+  effect,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import axios from "axios";
@@ -29,7 +29,7 @@ import { useHistory } from 'react-router-dom';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../UserAvatar/UserListItem'
 import {getSender} from '../../config/ChatLogics';
-import {NotificationBadge, effect} from 'react-notification-badge'
+import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
 
 
 const SideDrawer = () => {
@@ -37,7 +37,6 @@ const SideDrawer = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
-  use
   const { 
     setSelectedChat,
     user,
