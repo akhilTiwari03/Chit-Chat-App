@@ -28,13 +28,16 @@ import ProfileModel from './ProfileModel';
 import { useHistory } from 'react-router-dom';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../UserAvatar/UserListItem'
+import {getSender} from '../../config/ChatLogics';
+import {NotificationBadge, effect} from 'react-notification-badge'
+
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
-
+  use
   const { 
     setSelectedChat,
     user,
@@ -145,13 +148,13 @@ const SideDrawer = () => {
         <div>
           <Menu>
             <MenuButton p={1}>
-            {/* <NotificationBadge
+            <NotificationBadge
                 count={notification.length}
                 effect={effect.SCALE}
-              /> */}
+              />
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
-            {/* <MenuList pl={2}>{!notification.length && "No New Messages"}
+            <MenuList pl={2}>{!notification.length && "No New Messages"}
               {notification.map((notif) => (
                 <MenuItem
                   key={notif._id}
@@ -165,7 +168,7 @@ const SideDrawer = () => {
                     : `New Message from ${getSender(user, notif.chat.users)}`}
                     </MenuItem>
               ))}
-                </MenuList> */}
+                </MenuList>
                 
           </Menu>
           <Menu>
