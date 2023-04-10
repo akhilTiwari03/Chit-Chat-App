@@ -1,0 +1,25 @@
+{
+  "name": "chit-chat",
+  "version": "1.0.0",
+  "description": "This is a Chatting Application built to chat with your friends connected virtually on a network.",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "author": "Akhil Tiwari",
+  "license": "ISC",
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "framer-motion": "^4.1.17",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.2"
+  }
+}
