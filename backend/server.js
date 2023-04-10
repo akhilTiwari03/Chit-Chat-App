@@ -22,7 +22,7 @@ app.use('/api/message', messageRoutes)
 
 const __dirName1 = path.resolve()
 
-if(process.env.NOD_ENV ==='production') {
+if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirName1,"/frontend/build")));
 
     app.get('*', (req, res) => {
@@ -39,7 +39,7 @@ else {
 //----------------------------------Deployment------------------------------
 
 
-app.use(notFound)
+app.use(notFound)  // These 2 are Error Handling Middlewares ie notFound and errorHandler
 app.use(errorHandler)
 
 const port = process.env.PORT ;
