@@ -53,7 +53,7 @@ const io = require('socket.io')(server, {
     },
 });
 
-io.on("connected", (socket) => {
+io.on("connection", (socket) => {
     console.log("Connected to Socket.Io");
     socket.on('setup', (userData) => {
         socket.join(userData._id);
