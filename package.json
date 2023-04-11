@@ -4,7 +4,7 @@
   "description": "This is a Chatting Application built to chat with your friends connected virtually on a network.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start": "node backend/server.js"
   },
   "author": "Akhil Tiwari",
   "license": "ISC",
