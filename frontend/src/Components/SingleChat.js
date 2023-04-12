@@ -147,7 +147,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
     });
   });
-  const typingHandler = e => {
+  const typingHandler = (e)=> {
     setNewMessage(e.target.value);
 
     // Typing Indicator Logic
@@ -239,12 +239,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               isRequired
               mt={3}
             >
-              {isTyping ? <div>
+              {isTyping ? (<div>
                 <Lottie
                   width={70}
                   options={defaultOptions}
                   style={{marginBottom:15, marginLeft: 0}}/>
-              </div> : (<></>)}
+              </div>) : (<></>)}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
