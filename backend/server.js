@@ -47,6 +47,10 @@ const port = process.env.PORT ;
 const server = app.listen(port, console.log(`Sever Started on PORT ${port}`.yellow.bold));
 
 const io = require('socket.io')(server, {
+    // allowRequest: (req, callback) => {
+    //     callback(null, false);
+    //   },
+    allowEIO3: true,
     pingTimeout: 6000,
     cors: {
         origin: "http://localhost:3000",
