@@ -50,8 +50,8 @@ const io = require('socket.io')(server, {
     // allowRequest: (req, callback) => {
     //     callback(null, false);
     //   },
-    allowEIO3: true,
-    pingTimeout: 6000,
+    // allowEIO3: true,
+    // pingTimeout: 6000,
     cors: {
         origin: "*",
     },
