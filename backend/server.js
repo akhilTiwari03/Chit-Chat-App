@@ -50,10 +50,10 @@ const io = require('socket.io')(server, {
     // allowRequest: (req, callback) => {
     //     callback(null, false);
     //   },
-    allowEIO4: true,
+    allowEIO3: true,
     pingTimeout: 6000,
     cors: {
-        origin: "https://chit-chat-u7ol.onrender.com",
+        origin: "*",
     },
 });
 
