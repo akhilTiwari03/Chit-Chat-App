@@ -125,7 +125,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     fetchMessages();
     selectedChatCompare = selectedChat;
-    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedChat]);
 
   
@@ -160,7 +159,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     }
 
     let lastTypingTime = new Date().getTime();
-    var timerLength = 3000;
+    var timerLength = 5000;
     setTimeout(() => {
       var timeNow = new Date().getTime();
       var timeDiff = timeNow - lastTypingTime;
