@@ -50,7 +50,7 @@ const io = require('socket.io')(server, {
     allowEIO3: true,
     pingTimeout: 6000,
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://chit-chat-u7ol.onrender.com",
     },
 });
 
