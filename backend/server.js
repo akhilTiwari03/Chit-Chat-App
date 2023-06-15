@@ -20,20 +20,20 @@ app.use('/api/message', messageRoutes)
 
 //----------------------------------Deployment------------------------------
 
-const __dirName1 = path.resolve()
+// const __dirName1 = path.resolve()
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirName1,"/frontend/build")));
+// if(process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirName1,"/frontend/build")));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirName1, "frontend", "build", "index.html"));
-    });
-}
-else {
-    app.get("/", (req, res)=> {
-        res.send("Api is Running Successfully!");
-    });
-}
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirName1, "frontend", "build", "index.html"));
+//     });
+// }
+// else {
+//     app.get("/", (req, res)=> {
+//         res.send("Api is Running Successfully!");
+//     });
+// }
 
 
 //----------------------------------Deployment------------------------------
@@ -50,7 +50,7 @@ const io = require('socket.io')(server, {
     allowEIO3: true,
     pingTimeout: 6000,
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://stately-granita-3d155d.netlify.app/",
         methods: ['GET', 'POST'],
     },
 });
