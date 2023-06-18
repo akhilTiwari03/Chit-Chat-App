@@ -11,7 +11,6 @@ import {
 import React, { useState } from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
-import ChatState from '../../Context/ChatProvider'
 
 const Login = () => {
   const [show, setShow] = useState(false)
@@ -79,6 +78,7 @@ const Login = () => {
       setLoading(false) 
     }
   };
+
   return (
     <VStack spacing="10px" color="black">
       <FormControl id="email" isRequired>

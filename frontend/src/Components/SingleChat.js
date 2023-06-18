@@ -20,7 +20,7 @@ import Lottie from 'react-lottie'
 import animationData from "../Animations/typing.json"
 
 
-const ENDPOINT = "https://stately-granita-3d155d.netlify.app/"//"http://localhost:5000";
+const ENDPOINT = "https://chit-chat-u7ol.onrender.com"//"http://localhost:5000";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -30,12 +30,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
-
-
-  const { user, selectedChat, setSelectedChat,notification, setNotification } = ChatState();
-
+  
   const toast = useToast();
-
+  
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -44,7 +41,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
+  const { user, selectedChat, setSelectedChat,notification, setNotification } = ChatState();
+  
   const fetchMessages = async () => {
     if (!selectedChat) return;
 
@@ -65,7 +63,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setMessages(data);
       setLoading(false);
 
-      socket.emit('join chat', selectedChat._id);
+      socket.emit("join chat", selectedChat._id);
     } catch (error) {
       toast({
         title: 'Error Occured!',
@@ -80,7 +78,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const sendMessage = async (event) => {
     if (event.key === 'Enter' && newMessage) {
-      socket.emit('stop typing', selectedChat._id)
+      socket.emit("stop typing", selectedChat._id)
       try {
         const config = {
           headers: {
@@ -97,7 +95,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
           config
         );
-        socket.emit('new message', data);
+        socket.emit("new message", data);
         setMessages([...messages, data]);
 
       } catch (error) {
@@ -115,23 +113,29 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
-    socket.on('connected', ()=> {
+    socket.on("connected", ()=> {
       setSocketConnected(true);
     })
-    socket.on('typing',()=> setIsTyping(true))
-    socket.on('stop typing', ()=>setIsTyping(false));
+    socket.on("typing",()=> setIsTyping(true))
+    socket.on("stop typing", ()=>setIsTyping(false));
+
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     fetchMessages();
+
     selectedChatCompare = selectedChat;
+     // eslint-disable-next-line
   }, [selectedChat]);
 
   
 
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
-      if(!selectedChatCompare || selectedChatCompare._id !== newMessageRecieved.chat._id) {
+      if(!selectedChatCompare || 
+        selectedChatCompare._id !== newMessageRecieved.chat._id // if chat is not selected or doesn't match current chat
+        ) {
         //give notification
         if(!notification.includes(newMessageRecieved)) {
 
@@ -146,6 +150,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
     });
   });
+
+
   const typingHandler = (e)=> {
     setNewMessage(e.target.value);
 

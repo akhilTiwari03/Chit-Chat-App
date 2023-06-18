@@ -42,16 +42,16 @@ else {
 app.use(notFound)  // These 2 are Error Handling Middlewares ie notFound and errorHandler
 app.use(errorHandler)
 
-const port = process.env.PORT ;
+const PORT = process.env.PORT;
 
-const server = app.listen(port, console.log(`Sever Started on PORT ${port}`.yellow.bold));
+const server = app.listen(PORT , console.log(`Sever Started on PORT ${PORT}`.yellow.bold));
 
 const io = require('socket.io')(server, {
-    allowEIO3: true,
+    
     pingTimeout: 6000,
     cors: {
-        origin: "https://stately-granita-3d155d.netlify.app/",
-        methods: ['GET', 'POST'],
+        origin: "https://localhost:3000",
+        Credential:true,
     },
 });
 
