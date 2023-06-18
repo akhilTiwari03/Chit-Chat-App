@@ -126,7 +126,7 @@ const Login = () => {
      colorScheme="red"
      width={"100%"}
      onClick={()=>{
-        setEmail("guest@example.com");
+        setEmail("guest123@gmail.com");
         setPassword("123456");
      }}
      >
