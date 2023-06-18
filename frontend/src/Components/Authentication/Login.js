@@ -18,7 +18,7 @@ const Login = () => {
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
 
-  // const {user, setUser} = ChatState()
+   const {user, setUser} = ChatState()
 
   const toast = useToast();
   const history = useHistory();
