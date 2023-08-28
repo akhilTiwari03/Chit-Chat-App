@@ -145,7 +145,7 @@ const SignUp = () => {
       <FormControl id="email" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input
-          type="email"
+          type= {"email"}  
           placeholder="Enter Your Email..."
           onChange={e => setEmail(e.target.value)}
         />
