@@ -19,7 +19,7 @@ const Login = () => {
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
 
-   const {user, setUser} = ChatState()
+  const {setUser} = ChatState()
 
   const toast = useToast();
   const history = useHistory();
@@ -61,11 +61,10 @@ const Login = () => {
         isClosable: true,
         position: 'bottom',
       });
-
+      window.location.reload(true);
+      setUser(data);
       localStorage.setItem('userInfo', JSON.stringify(data));
       setLoading(false);
-      // const userInfo = JSON.parse(localStorage.getItem('userInfo')); //store the data from localstorage
-      // setUser(userInfo);
       history.push('/chats')
     } catch (error) {
       toast({
